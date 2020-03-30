@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS Brownbag 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <h1>{{ title }}</h1>
+    <div v-show="!submitted">
+        <div>
+            <label>
+                Title
+                <select v-model="user.title">
+                    <option v-for="(name, key) in titleOptions">{{ name }}</option>
+                </select>
+            </label>
+        </div>
+        <div v-if="user.title=='Other'">
+            <label>
+                Please Specify:
+                <input v-model="user.custom_title"/>
+            </label>
+            <br/>
+            <br/>
+        </div>
+        <div>
+            <label>
+                First Name
+                <input v-model="user.first_name"/>
+            </label>
+        </div>
+        <div>
+            <label>
+                Last Name
+                <input v-model="user.last_name"/>
+            </label>
+        </div>
+        <button @click="onClick()">
+            Submit
+        </button>
+    </div>
+    <div v-show="submitted">
+        <p>Thanks for submitting!</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+  var vm = new Vue({
+    el: '#example',
+    data: {
+      title: 'Template Control',
+      user: {
+        first_name: '',
+        last_name: '',
+        title: 'Mr',
+        custom_title: ''
+      },
+      titleOptions: {
+        mr: 'Mr',
+        mrs: 'Mrs',
+        other: 'Other'
+      },
+      submitted: false
+    },
+    methods: {
+      onClick () {
+        this.submitted = true
+      }
+    }
+  })
+</script>
+</body>
+</html>

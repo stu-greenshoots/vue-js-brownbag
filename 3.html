@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS Brownbag 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <h1 v-text="title"></h1>
+    <img v-bind:src="imgSrc" height="200px"/><br/>
+    <button v-on:click="onClick()">
+        Click me
+    </button>
+</div>
+
+<script type="text/javascript">
+  var vm = new Vue({
+    el: '#example',
+    data: {
+      title: 'DOM Binding',
+      imgSrc: 'https://tinyurl.com/tazhk8o'
+    },
+    methods: {
+      onClick () {
+        this.title = 'Clicked'
+        this.imgSrc = 'https://tinyurl.com/u6fbzom'
+      }
+    }
+  })
+</script>
+</body>
+</html>

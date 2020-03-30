@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS Brownbag 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<script type="text/javascript">
+  var vm = new Vue({
+    el: '#example',
+    data: {
+      foo: 'bar'
+    },
+    beforeCreate: function () {
+      console.log('Before Create');
+    },
+    created: function () {
+      console.log('Created');
+    },
+    beforeMount: function () {
+      console.log('Before mount');
+    },
+    mounted: function () {
+      console.log('Mounted');
+    }
+  })
+</script>
+</body>
+</html>

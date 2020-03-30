@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS Brownbag 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <h1>{{ title }}</h1>
+    <div>
+        <label>
+            Title
+            <select v-model="user.title">
+                <option>Mr</option>
+                <option>Mrs</option>
+                <option>Other</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <label>
+            First Name
+            <input v-model="user.first_name"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Last Name
+            <input v-model="user.last_name"/>
+        </label>
+    </div>
+    <p>Full Name: {{ fullName }}</p>
+</div>
+
+<script type="text/javascript">
+  var vm = new Vue({
+    el: '#example',
+    data: {
+      title: 'Computed Values',
+      user: {
+        first_name: '',
+        last_name: '',
+        title: 'Mr',
+      }
+    },
+    computed: {
+      fullName: function () {
+        return this.user.title + ' ' + this.user.first_name + ' ' + this.user.last_name
+      }
+    },
+    watch: {
+      'user.title': function (newVal, oldVal) {
+        alert('Title Updated to ' + newVal);
+      }
+    },
+    methods: {}
+  })
+</script>
+</body>
+</html>

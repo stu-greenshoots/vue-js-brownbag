@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS Brownbag 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <h1>{{ title }}</h1>
+    <div>
+        <label>
+            First Name
+            <input v-model="first_name"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Last Name
+            <input v-model="last_name"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Sex (select)
+            <select v-model="sex">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </label>
+    </div>
+    <p>First Name: {{ first_name }}</p>
+    <p>Last Name: {{ last_name }}</p>
+    <p>Sex: {{ sex }}</p>
+</div>
+
+<script type="text/javascript">
+  var vm = new Vue({
+    el: '#example',
+    data: {
+      title: 'Model Binding',
+        first_name: 'Stuart',
+        last_name: '',
+        sex: ''
+    },
+    methods: {}
+  })
+</script>
+</body>
+</html>
